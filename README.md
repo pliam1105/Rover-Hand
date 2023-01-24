@@ -31,8 +31,11 @@ The code that tested the two above parts is: [object tracker](object_tracker_ope
 ## PID Controller for following the object
 The second part of this project was actually following the object and not losing it from the camera image. The parameter that I wanted to minimize was the ratio:
 $$
-error = \frac{x\ coordinate\ - image\ size/2}{image\ size/2}
+test = \frac{1}{2}
 $$
+```math
+error = \frac{x\ coordinate\ - image\ size/2}{image\ size/2}
+```
 which takes values from -1 to 1 depending on the position of the center of the object within the frame.<br>
 For the response of the robot to this error I created a function that maps integers from -1 to 1 to certain speeds of the robot. This converts x to values from $-speed$ to $speed$ for the motor to whose direction the robot needs to turn and a $speed$ value for the other motor (where $speed$ is a constant).<br>
 At first, I tried the simple, Proportional, controller, where I plugged in the error to the response. The result was a bit of zig-zag, most times losing track of it.<br>
