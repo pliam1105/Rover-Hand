@@ -32,7 +32,7 @@ The code that tested the two above parts is: [object tracker](object_tracker_ope
 
 ## PID Controller for following the object
 The second part of this project was actually following the object and not losing it from the camera image. The parameter that I wanted to minimize was the ratio:
-$$error = \frac{x\ coordinate\ - image\ size/2}{image\ size/2}$$
+$$\large{error = \frac{x\ coordinate\ - image\ size/2}{image\ size/2}}$$
 which takes values from -1 to 1 depending on the position of the center of the object within the frame.<br>
 For the response of the robot to this error I created a function that maps integers from -1 to 1 to certain speeds of the robot. This converts x to values from $-speed$ to $speed$ for the motor to whose direction the robot needs to turn and a $speed$ value for the other motor (where $speed$ is a constant).<br>
 At first, I tried the simple, Proportional, controller, where I plugged in the error to the response. The result was a bit of zig-zag, most times losing track of it.<br>
@@ -48,9 +48,13 @@ For that last part I needed to convert the distance from the object at the end o
 <img src = "MEDIA/diagram2.png" alt="Diagram 2" title = "Diagram2"><br><br>
 
 $$\large{\tan⁡a=\frac{x}{l_1} \to a=\arctan \frac{x}{l_1},\ \ l_4=\sqrt{l_1^2+x^2}}$$
+
 $$\large{l_3^2=l_2^2+l_4^2-2l_2l_4\cos⁡b \to b=\arccos⁡{\frac{l_2^2+l_4^2-l_3^2}{2l_2l_4}}}$$
+
 $$\large{l_4^2=l_2^2+l_3^2-2l_2l_3\cos⁡c \to c=\arccos⁡{\frac{l_2^2+l_3^2-l_4^2}{2l_2l_3}}}$$
+
 $$\large{angle1 = a+b-45\degree}$$
+
 $$\large{angle2 = c + 10\degree}$$
 
 The last step is controlling the servos. For this, I send serial commands from the Raspberry Pi to the Arduino via USB, which determine the servo and the angle I want to move the servo to. The Arduino receives these commands and uses the Servo library to move them to the desired position.
