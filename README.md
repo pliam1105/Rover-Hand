@@ -22,10 +22,10 @@ The XiaoR GEEK Expansion Board (powered by an external supply) is attached onto 
 
 # Software ([code](rover_pid.py))
 ## Tracking the object
-The first part that needed to be implemented was an object tracker that is light (as the Raspberry Pi doesn't have much computing power) and relatively fast, as the robot will constantly be moving, so I decided to use one of the OpenCV trackers (in Python). After checking all the available ones, and other libraries as well, I decided to use the CSRT one, and choose the object in the image by hand.<br>
+The first part that needed to be implemented was an object tracker that is light (as the Raspberry Pi doesn't have much computing power) and relatively fast, as the robot will constantly be moving, so I decided to use one of the OpenCV trackers (in Python). After checking all the available ones, and other libraries as well, I decided to use the CSRT one, and choose the object in the image by hand.<br><br>
+<img title="Object Tracking Demo" alt="Object Tracking Demo" src="MEDIA/tracking_gif.gif" width="70%"><br>
 ## Detecting 
 Because I also wanted to add the option to automatically detect an object and then follow it and catch it, I added a code block that uses the YOLOv5 pretrained model to find all objects in the image, and then choose the one with the highest confidence value.<br><br>
-<img title="Object Tracking Demo" alt="Object Tracking Demo" src="MEDIA/tracking_gif.gif" width="70%"><br><br>
 The code that tested the two above parts is: [object tracker](object_tracker_opencv.py)
 
 ## PID Controller for following the object
@@ -37,6 +37,8 @@ At first, I tried the simple, Proportional, controller, where I plugged in the e
 Next, I used a PID controller (standing for Proportional, Integral, Derivative), which takes into consideration the error multiplied by a constant $KP$, the rate of change of the error multiplied by $KD$, and the integral of the errors until that time, multiplied by $KI$. This can be summarized in this case by the following equation:
 $$response = last\ error\cdot KP+(last\ error-previous\ error)\cdot KD+sum\ of\ errors\cdot KI$$
 After some trial-and-error with the constants $KP$, $KI$, $KD$ I found some that worked very well for the action of tracking a standing object (It even worked pretty well when I moved it), so I moved on to the last step of actually catching the object.
+<br><br>
+<img title="Object Following Demo" alt="Object Following Demo" src="MEDIA/movement_gif.gif" width="70%"><br>
  
 ## Catching the object
 For that last part I needed to convert the distance from the object at the end of the tracking, measured using the ultrasonic sensor, to the angles needed by the servos in order to catch the object. This required some trigonometry and it is described in the following diagrams and equations, representing the position of the robotic hand:<br><br>
@@ -52,3 +54,5 @@ The last step is controlling the servos. For this, I send serial commands from t
 <br>
 <br>The code that tested the above process is: [hand code](hand_control.py)
 <br>The Arduino code is the following: [arduino code](Arduino%20servo%20code/rpi_servo_control.ino)
+<br><br>
+<img title="Object Catching Demo" alt="Object Catching Demo" src="MEDIA/hand_gif.gif" width="70%"><br>
