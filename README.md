@@ -50,7 +50,7 @@ $$\tan⁡a=\frac{x}{l_1} \to a=\arctan \frac{x}{l_1},\ \ l_4=\sqrt{l_1^2+x^2}\\
 l_3^2=l_2^2+l_4^2-2l_2l_4\cos⁡b \to b=\arccos⁡{\frac{l_2^2+l_4^2-l_3^2}{2l_2l_4}}\\
 l_4^2=l_2^2+l_3^2-2l_2l_3\cos⁡c \to c=\arccos⁡{\frac{l_2^2+l_3^2-l_4^2}{2l_2l_3}}\\
 angle1 = a+b-45\degree\\
-angle2 = c + 10\degree\\$$
+angle2 = c + 10\degree$$
 
 The last step is controlling the servos. For this, I send serial commands from the Raspberry Pi to the Arduino via USB, which determine the servo and the angle I want to move the servo to. The Arduino receives these commands and uses the Servo library to move them to the desired position.
 <br>
