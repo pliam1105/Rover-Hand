@@ -41,7 +41,7 @@ $$
 response = last\ error\cdot KP+(last\ error-previous\ error)\cdot KD+sum\ of\ errors\cdot KI
 $$
 After some trial-and-error with the constants $KP$, $KI$, $KD$ I found some that worked very well for the action of tracking a standing object (It even worked pretty well when I moved it), so I moved on to the last step of actually catching the object.
-
+ 
 ## Catching the object
 For that last part I needed to convert the distance from the object at the end of the tracking, measured using the ultrasonic sensor, to the angles needed by the servos in order to catch the object. This required some trigonometry and it is described in the following diagrams and equations, representing the position of the robotic hand:<br><br>
 <img src = "MEDIA/diagram1.png" alt="Diagram 1" title = "Diagram 1"><br>
