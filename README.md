@@ -1,6 +1,6 @@
 # Rover Hand
 An autonomous robot based on Raspberry Pi 3 and Arduino that uses YOLOv5 to detect objects and OpenCV to track an object and catch it using a robotic hand.<br><br>
-![Demo](MEDIA/Rover%20Hand.gif "Demo")
+https://user-images.githubusercontent.com/34167782/214392750-5f69c627-f3a9-4848-acd2-e9836b9645eb.mp4
 <br><br>
 
 # Materials
