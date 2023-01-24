@@ -47,7 +47,7 @@ For that last part I needed to convert the distance from the object at the end o
 <img src = "MEDIA/diagram1.png" alt="Diagram 1" title = "Diagram 1"><br>
 <img src = "MEDIA/diagram2.png" alt="Diagram 2" title = "Diagram2"><br><br>
 
-$$\begin{flalign}& \large{\tan⁡a=\frac{x}{l_1} \to a=\arctan \frac{x}{l_1},\ \ l_4=\sqrt{l_1^2+x^2}} &\end{flalign}$$
+$$\begin{align}& \large{\tan⁡a=\frac{x}{l_1} \to a=\arctan \frac{x}{l_1},\ \ l_4=\sqrt{l_1^2+x^2}} &\end{align}$$
 
 $$\begin{flalign}& \large{l_3^2=l_2^2+l_4^2-2l_2l_4\cos⁡b \to b=\arccos⁡{\frac{l_2^2+l_4^2-l_3^2}{2l_2l_4}}} &\end{flalign}$$
 
