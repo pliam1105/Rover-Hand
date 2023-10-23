@@ -26,6 +26,7 @@ The XiaoR GEEK Expansion Board (powered by an external supply) is attached onto 
 ## Tracking the object
 The first part that needed to be implemented was an object tracker that is light (as the Raspberry Pi doesn't have much computing power) and relatively fast, as the robot will constantly be moving, so I decided to use one of the OpenCV trackers (in Python). After checking all the available ones, and other libraries as well, I decided to use the CSRT one, and choose the object in the image by hand.<br><br>
 <table><tr><td align="center"><img title="Object Tracking Demo" alt="Object Tracking Demo" src="MEDIA/tracking_gif.gif" width="70%"></td></tr><table><br>
+
 ## Detecting 
 Because I also wanted to add the option to automatically detect an object and then follow it and catch it, I added a code block that uses the YOLOv5 pretrained model to find all objects in the image, and then choose the one with the highest confidence value.<br><br>
 The code that tested the two above parts is: [object tracker](object_tracker_opencv.py)
